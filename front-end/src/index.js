@@ -8,7 +8,16 @@ import { createStore, applyMiddleware } from 'redux';
 import RootReducer from './reducers/RootReducer';
 import reduxPromise from 'redux-promise';
 
+// React needs to know about it...Provider accomplishes this
+import { Provider } from 'react-redux';
+
+// using IIFE way to create theStore....
+const theStore = applyMiddleware(reduxPromise)(createStore)(RootReducer);
+
+// wrap the App with the Provider so everything in the App can use state
 ReactDOM.render(
-	<App />,
+	<Provider store={theStore}>
+		<App />
+	</Provider>,
 	document.getElementById('root'
 ));
