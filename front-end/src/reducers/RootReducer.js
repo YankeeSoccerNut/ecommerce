@@ -5,8 +5,12 @@
 import { combineReducers } from 'redux';
 
 import AuthReducer from './AuthReducer';
+import ProductLineReducer from './ProductLineReducer';
+import CartReducer from './CartReducer';
+
 
 //combineReducers takes an object as an arg.  key is state name, value is reducer function
-const rootReducer = combineReducers({auth: AuthReducer});
+const rootReducer = combineReducers({auth: AuthReducer, pl: ProductLineReducer,
+cart: CartReducer});
 
 export default rootReducer;
